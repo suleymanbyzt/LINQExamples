@@ -20,8 +20,12 @@ namespace Features
                 new Employee { Id=4, Name="Derya"}
             };
 
-            foreach (var employee in employees.Where(
-                                     e=>e.Name.StartsWith("B")))
+            var result = employees.Where(e => e.Name.Length == 5)
+                                        .OrderByDescending(e => e.Name)
+                                        .Select(e => e);
+                                        
+
+            foreach (var employee in result)
             {
                 Console.WriteLine(employee.Name);
             }
